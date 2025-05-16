@@ -68,7 +68,9 @@ export default {
 					'green': '#4A6741',
 					'cream': '#F5F1E3',
 					'beige': '#D2B48C',
-					'dark': '#3A2E24'
+					'dark': '#3A2E24',
+					'lightblue': '#7FDBFF',
+					'blue': '#0074D9'
 				}
 			},
 			borderRadius: {

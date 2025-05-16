@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -10,12 +11,29 @@ const RoomDetail = () => {
   const [room, setRoom] = useState<Room | null>(null);
   const [notFound, setNotFound] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [selectedPeople, setSelectedPeople] = useState<number | null>(null);
+  const [currentPrice, setCurrentPrice] = useState<number>(0);
 
   useEffect(() => {
     if (id) {
       const foundRoom = getRoomById(id);
       if (foundRoom) {
         setRoom(foundRoom);
+        setCurrentPrice(foundRoom.price);
+        
+        // Set default selected people to the base capacity
+        if (foundRoom.capacity) {
+          const defaultPeople = foundRoom.capacity.adults;
+          setSelectedPeople(defaultPeople);
+          
+          // Find the matching price option
+          if (foundRoom.priceOptions) {
+            const priceOption = foundRoom.priceOptions.find(option => option.people === defaultPeople);
+            if (priceOption) {
+              setCurrentPrice(priceOption.price);
+            }
+          }
+        }
       } else {
         setNotFound(true);
       }
@@ -33,6 +51,19 @@ const RoomDetail = () => {
       setCurrentImageIndex((prevIndex) => prevIndex === 0 ? room.galleryImages.length - 1 : prevIndex - 1);
     }
   };
+  
+  const handlePeopleChange = (people: number) => {
+    setSelectedPeople(people);
+    
+    if (room?.priceOptions) {
+      const priceOption = room.priceOptions.find(option => option.people === people);
+      if (priceOption) {
+        setCurrentPrice(priceOption.price);
+      } else {
+        setCurrentPrice(room.price);
+      }
+    }
+  };
 
   const otherRooms = room ? rooms.filter(r => r.id !== room.id).slice(0, 3) : [];
 
@@ -42,14 +73,14 @@ const RoomDetail = () => {
         <div className="py-16">
           <div className="container mx-auto px-4">
             <div className="text-center">
-              <h1 className="text-3xl font-serif font-bold text-pousada-brown mb-4">
+              <h1 className="text-3xl font-serif font-bold text-pousada-blue mb-4">
                 Acomodação não encontrada
               </h1>
               <p className="text-gray-700 mb-8">
                 A acomodação que você está procurando não está disponível.
               </p>
               <Link to="/acomodacoes">
-                <Button className="bg-pousada-brown hover:bg-pousada-dark text-white">
+                <Button className="bg-pousada-blue hover:bg-pousada-dark text-white">
                   Ver Todas as Acomodações
                 </Button>
               </Link>
@@ -66,7 +97,7 @@ const RoomDetail = () => {
         <div className="py-16">
           <div className="container mx-auto px-4">
             <div className="text-center">
-              <h1 className="text-3xl font-serif font-bold text-pousada-brown mb-4">
+              <h1 className="text-3xl font-serif font-bold text-pousada-blue mb-4">
                 Carregando...
               </h1>
             </div>
@@ -85,7 +116,7 @@ const RoomDetail = () => {
             <nav className="flex" aria-label="Breadcrumb">
               <ol className="inline-flex items-center space-x-1 md:space-x-3">
                 <li className="inline-flex items-center">
-                  <Link to="/" className="text-gray-700 hover:text-pousada-brown">
+                  <Link to="/" className="text-gray-700 hover:text-pousada-blue">
                     <Home className="h-4 w-4 mr-2" />
                     <span>Início</span>
                   </Link>
@@ -95,7 +126,7 @@ const RoomDetail = () => {
                     <svg className="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"></path>
                     </svg>
-                    <Link to="/acomodacoes" className="ml-1 text-gray-700 hover:text-pousada-brown md:ml-2">Acomodações</Link>
+                    <Link to="/acomodacoes" className="ml-1 text-gray-700 hover:text-pousada-blue md:ml-2">Acomodações</Link>
                   </div>
                 </li>
                 <li aria-current="page">
@@ -111,7 +142,7 @@ const RoomDetail = () => {
           </div>
 
           {/* Room Title */}
-          <h1 className="text-3xl font-serif font-bold text-pousada-brown mb-2">
+          <h1 className="text-3xl font-serif font-bold text-pousada-blue mb-2">
             {room.name}
           </h1>
 
@@ -158,7 +189,7 @@ const RoomDetail = () => {
 
               {/* Room Description */}
               <div className="mb-8">
-                <h2 className="text-2xl font-serif font-semibold text-pousada-brown mb-4">
+                <h2 className="text-2xl font-serif font-semibold text-pousada-blue mb-4">
                   Descrição
                 </h2>
                 {room.fullDescription.map((paragraph, index) => (
@@ -170,13 +201,13 @@ const RoomDetail = () => {
 
               {/* Amenities */}
               <div className="mb-8">
-                <h2 className="text-2xl font-serif font-semibold text-pousada-brown mb-4">
+                <h2 className="text-2xl font-serif font-semibold text-pousada-blue mb-4">
                   Comodidades
                 </h2>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                   {room.amenities.map((amenity, index) => (
                     <div key={index} className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-pousada-green mr-2" />
+                      <CheckCircle className="h-5 w-5 text-pousada-blue mr-2" />
                       <span>{amenity}</span>
                     </div>
                   ))}
@@ -188,23 +219,50 @@ const RoomDetail = () => {
               {/* Booking Card */}
               <div className="bg-white rounded-lg shadow-lg p-6 sticky top-24">
                 <div className="flex justify-between items-center mb-4">
-                  <span className="text-2xl font-serif font-semibold text-pousada-brown">
-                    R$ {room.price}
+                  <span className="text-2xl font-serif font-semibold text-pousada-blue">
+                    R$ {currentPrice}
                   </span>
                   <span className="text-gray-600">por noite</span>
                 </div>
                 
+                {/* People Selection */}
+                {room.priceOptions && room.priceOptions.length > 0 && (
+                  <div className="mb-6">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Selecione a quantidade de pessoas:
+                    </label>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                      {room.priceOptions.map((option) => (
+                        <button
+                          key={option.people}
+                          onClick={() => handlePeopleChange(option.people)}
+                          className={`px-4 py-2 rounded text-sm font-medium transition-colors
+                            ${selectedPeople === option.people 
+                              ? 'bg-pousada-blue text-white' 
+                              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                            }`}
+                        >
+                          {option.people} {option.people === 1 ? 'pessoa' : 'pessoas'}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                
                 <div className="mb-6 space-y-4">
                   <div className="flex items-start gap-2">
-                    <User className="h-5 w-5 text-pousada-brown mt-1" />
+                    <User className="h-5 w-5 text-pousada-blue mt-1" />
                     <div>
                       <p className="font-medium">Capacidade</p>
-                      <p className="text-sm text-gray-600">{room.capacity} {room.capacity > 1 ? 'pessoas' : 'pessoa'}</p>
+                      <p className="text-sm text-gray-600">
+                        {room.capacity.adults} {room.capacity.adults > 1 ? 'adultos' : 'adulto'}
+                        {room.capacity.children > 0 && `, ${room.capacity.children} ${room.capacity.children > 1 ? 'crianças' : 'criança'}`}
+                      </p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-2">
-                    <Home className="h-5 w-5 text-pousada-brown mt-1" />
+                    <Home className="h-5 w-5 text-pousada-blue mt-1" />
                     <div>
                       <p className="font-medium">Tamanho</p>
                       <p className="text-sm text-gray-600">{room.size} m²</p>
@@ -212,7 +270,7 @@ const RoomDetail = () => {
                   </div>
                   
                   <div className="flex items-start gap-2">
-                    <svg className="h-5 w-5 text-pousada-brown mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="h-5 w-5 text-pousada-blue mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                     </svg>
                     <div>
@@ -222,8 +280,8 @@ const RoomDetail = () => {
                   </div>
                 </div>
                 
-                <Link to={`/reservas?room=${room.id}`}>
-                  <Button className="w-full bg-pousada-brown hover:bg-pousada-dark text-white mb-4">
+                <Link to={`/reservas?room=${room.id}&people=${selectedPeople}`}>
+                  <Button className="w-full bg-pousada-blue hover:bg-pousada-dark text-white mb-4">
                     <Calendar className="mr-2 h-5 w-5" />
                     Reservar Agora
                   </Button>
@@ -250,7 +308,7 @@ const RoomDetail = () => {
           {/* Other Rooms */}
           {otherRooms.length > 0 && (
             <div className="mt-16">
-              <h2 className="text-2xl font-serif font-semibold text-pousada-brown mb-6">
+              <h2 className="text-2xl font-serif font-semibold text-pousada-blue mb-6">
                 Outras Acomodações que Você Pode Gostar
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -264,15 +322,15 @@ const RoomDetail = () => {
                       />
                     </div>
                     <div className="p-4">
-                      <h3 className="text-lg font-serif font-semibold text-pousada-brown mb-2">{room.name}</h3>
+                      <h3 className="text-lg font-serif font-semibold text-pousada-blue mb-2">{room.name}</h3>
                       <p className="text-gray-600 text-sm mb-4 line-clamp-2">{room.description}</p>
                       <div className="flex justify-between items-center">
-                        <div className="text-pousada-brown">
+                        <div className="text-pousada-blue">
                           <span className="text-lg font-semibold">R$ {room.price}</span>
                           <span className="text-xs text-gray-500"> /noite</span>
                         </div>
                         <Link to={`/acomodacoes/${room.id}`}>
-                          <Button variant="outline" size="sm" className="border-pousada-brown text-pousada-brown hover:bg-pousada-cream">
+                          <Button variant="outline" size="sm" className="border-pousada-blue text-pousada-blue hover:bg-accent">
                             Ver Detalhes
                           </Button>
                         </Link>

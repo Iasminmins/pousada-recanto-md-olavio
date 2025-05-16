@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from "react-router-dom";
-import { MapPin, Calendar, ChevronDown } from "lucide-react";
+import { MapPin, Calendar, ChevronDown, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface LayoutProps {
@@ -15,43 +15,48 @@ const Layout = ({ children }: LayoutProps) => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <Link to="/" className="flex items-center">
-              <h1 className="text-2xl font-serif font-bold text-pousada-brown">Recanto MD Olavio</h1>
+              <img 
+                src="/lovable-uploads/d19527d9-ffd8-40c0-ba05-7aa09c52537c.png" 
+                alt="Recanto MD Olavio Logo" 
+                className="h-12 mr-3" 
+              />
+              <h1 className="text-2xl font-serif font-bold text-pousada-blue">Recanto MD Olavio</h1>
             </Link>
             <nav className="hidden md:flex items-center space-x-8">
-              <Link to="/" className="text-pousada-dark hover:text-pousada-brown transition-colors font-medium">
+              <Link to="/" className="text-pousada-dark hover:text-pousada-blue transition-colors font-medium">
                 Início
               </Link>
-              <Link to="/acomodacoes" className="text-pousada-dark hover:text-pousada-brown transition-colors font-medium">
+              <Link to="/acomodacoes" className="text-pousada-dark hover:text-pousada-blue transition-colors font-medium">
                 Acomodações
               </Link>
               <div className="relative group">
-                <button className="flex items-center text-pousada-dark hover:text-pousada-brown transition-colors font-medium">
+                <button className="flex items-center text-pousada-dark hover:text-pousada-blue transition-colors font-medium">
                   Experiências <ChevronDown className="ml-1 h-4 w-4" />
                 </button>
                 <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
                   <div className="py-1">
-                    <Link to="/experiencias/gastronomia" className="block px-4 py-2 text-sm text-pousada-dark hover:bg-pousada-cream">
+                    <Link to="/experiencias/gastronomia" className="block px-4 py-2 text-sm text-pousada-dark hover:bg-accent">
                       Gastronomia
                     </Link>
-                    <Link to="/experiencias/passeios" className="block px-4 py-2 text-sm text-pousada-dark hover:bg-pousada-cream">
+                    <Link to="/experiencias/passeios" className="block px-4 py-2 text-sm text-pousada-dark hover:bg-accent">
                       Passeios
                     </Link>
-                    <Link to="/experiencias/atividades" className="block px-4 py-2 text-sm text-pousada-dark hover:bg-pousada-cream">
+                    <Link to="/experiencias/atividades" className="block px-4 py-2 text-sm text-pousada-dark hover:bg-accent">
                       Atividades
                     </Link>
                   </div>
                 </div>
               </div>
-              <Link to="/galeria" className="text-pousada-dark hover:text-pousada-brown transition-colors font-medium">
+              <Link to="/galeria" className="text-pousada-dark hover:text-pousada-blue transition-colors font-medium">
                 Galeria
               </Link>
-              <Link to="/contato" className="text-pousada-dark hover:text-pousada-brown transition-colors font-medium">
+              <Link to="/contato" className="text-pousada-dark hover:text-pousada-blue transition-colors font-medium">
                 Contato
               </Link>
             </nav>
             <div className="flex items-center space-x-4">
               <Link to="/reservas">
-                <Button variant="default" className="bg-pousada-brown hover:bg-pousada-dark text-white">
+                <Button variant="default" className="bg-pousada-blue hover:bg-pousada-dark text-white">
                   <Calendar className="mr-2 h-4 w-4" /> Reservar
                 </Button>
               </Link>
@@ -73,10 +78,17 @@ const Layout = ({ children }: LayoutProps) => {
         <div className="container mx-auto px-4 py-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-xl font-serif mb-4">Recanto MD Olavio</h3>
+              <div className="flex items-center mb-4">
+                <img 
+                  src="/lovable-uploads/d19527d9-ffd8-40c0-ba05-7aa09c52537c.png" 
+                  alt="Recanto MD Olavio Logo" 
+                  className="h-12 mr-3 bg-white rounded-full p-1" 
+                />
+                <h3 className="text-xl font-serif">Recanto MD Olavio</h3>
+              </div>
               <p className="mb-4 text-gray-300">Uma experiência única em meio à natureza, com o conforto que você merece.</p>
               <div className="flex items-start space-x-2">
-                <MapPin className="h-5 w-5 mt-0.5 text-pousada-beige" />
+                <MapPin className="h-5 w-5 mt-0.5 text-pousada-lightblue" />
                 <p className="text-gray-300">Estrada das Flores, Km 5<br />Campos do Jordão, SP<br />CEP 12345-678</p>
               </div>
             </div>
@@ -94,8 +106,16 @@ const Layout = ({ children }: LayoutProps) => {
 
             <div>
               <h3 className="text-xl font-serif mb-4">Contato</h3>
-              <p className="mb-2 text-gray-300">Telefone: (12) 3456-7890</p>
-              <p className="mb-4 text-gray-300">Email: contato@recantomdolavio.com.br</p>
+              <div className="flex items-center mb-2 text-gray-300">
+                <Phone className="h-5 w-5 mr-2 text-pousada-lightblue" />
+                <p>(12) 3456-7890</p>
+              </div>
+              <div className="flex items-center mb-4 text-gray-300">
+                <Mail className="h-5 w-5 mr-2 text-pousada-lightblue" />
+                <a href="mailto:recantomdolavio@gmail.com" className="hover:underline">
+                  recantomdolavio@gmail.com
+                </a>
+              </div>
               <div className="flex space-x-4">
                 <a href="#" className="text-gray-300 hover:text-white transition-colors">
                   <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
