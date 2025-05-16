@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Calendar, House, MapPin } from "lucide-react";
@@ -32,7 +31,7 @@ const Index = () => {
         <div className="absolute inset-0 flex items-center">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-4">Pousada Serena</h1>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-4">Recanto MD Olavio</h1>
               <p className="text-xl md:text-2xl text-white mb-6">
                 Um refúgio encantador em meio à natureza, onde tranquilidade e conforto se encontram para proporcionar uma experiência inesquecível.
               </p>
@@ -154,7 +153,7 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-serif font-bold text-pousada-brown mb-4">
-                Bem-vindo à Pousada Serena
+                Bem-vindo ao Recanto MD Olavio
               </h2>
               <p className="text-gray-700 mb-4">
                 Localizado em meio às belas paisagens naturais, nosso refúgio combina o charme rústico com o conforto moderno. Cada detalhe foi cuidadosamente pensado para proporcionar uma experiência inesquecível aos nossos hóspedes.
@@ -323,7 +322,7 @@ const Index = () => {
               O que Dizem Nossos Hóspedes
             </h2>
             <p className="text-gray-700 max-w-3xl mx-auto">
-              Descubra por que nossos hóspedes se apaixonam pela Pousada Serena e retornam ano após ano.
+              Descubra por que nossos hóspedes se apaixonam pelo Recanto MD Olavio e retornam ano após ano.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -436,7 +435,7 @@ const Index = () => {
                 Localização Privilegiada
               </h2>
               <p className="text-gray-700 mb-4">
-                A Pousada Serena está localizada em uma área de rara beleza natural, a apenas 15 minutos do centro da cidade e a 30 minutos das principais atrações da região.
+                O Recanto MD Olavio está localizado em uma área de rara beleza natural, a apenas 15 minutos do centro da cidade e a 30 minutos das principais atrações da região.
               </p>
               <div className="flex items-start space-x-2 mb-4">
                 <MapPin className="h-5 w-5 mt-0.5 text-pousada-brown" />
@@ -469,7 +468,7 @@ const Index = () => {
               Receba Nossas Novidades
             </h2>
             <p className="mb-6">
-              Inscreva-se para receber ofertas exclusivas, dicas de viagem e novidades da Pousada Serena.
+              Inscreva-se para receber ofertas exclusivas, dicas de viagem e novidades do Recanto MD Olavio.
             </p>
             <form onSubmit={(e) => e.preventDefault()} className="flex flex-col md:flex-row gap-4">
               <Input 

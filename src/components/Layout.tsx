@@ -15,7 +15,7 @@ const Layout = ({ children }: LayoutProps) => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <Link to="/" className="flex items-center">
-              <h1 className="text-2xl font-serif font-bold text-pousada-brown">Pousada Serena</h1>
+              <h1 className="text-2xl font-serif font-bold text-pousada-brown">Recanto MD Olavio</h1>
             </Link>
             <nav className="hidden md:flex items-center space-x-8">
               <Link to="/" className="text-pousada-dark hover:text-pousada-brown transition-colors font-medium">
@@ -73,7 +73,7 @@ const Layout = ({ children }: LayoutProps) => {
         <div className="container mx-auto px-4 py-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-xl font-serif mb-4">Pousada Serena</h3>
+              <h3 className="text-xl font-serif mb-4">Recanto MD Olavio</h3>
               <p className="mb-4 text-gray-300">Uma experiência única em meio à natureza, com o conforto que você merece.</p>
               <div className="flex items-start space-x-2">
                 <MapPin className="h-5 w-5 mt-0.5 text-pousada-beige" />
@@ -95,7 +95,7 @@ const Layout = ({ children }: LayoutProps) => {
             <div>
               <h3 className="text-xl font-serif mb-4">Contato</h3>
               <p className="mb-2 text-gray-300">Telefone: (12) 3456-7890</p>
-              <p className="mb-4 text-gray-300">Email: contato@pousadaserena.com.br</p>
+              <p className="mb-4 text-gray-300">Email: contato@recantomdolavio.com.br</p>
               <div className="flex space-x-4">
                 <a href="#" className="text-gray-300 hover:text-white transition-colors">
                   <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -116,7 +116,7 @@ const Layout = ({ children }: LayoutProps) => {
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
-            <p>&copy; {new Date().getFullYear()} Pousada Serena. Todos os direitos reservados.</p>
+            <p>&copy; {new Date().getFullYear()} Recanto MD Olavio. Todos os direitos reservados.</p>
           </div>
         </div>
       </footer>
