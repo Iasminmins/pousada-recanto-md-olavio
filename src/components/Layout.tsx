@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
-import { MapPin, Calendar, ChevronDown, Mail, Phone, Settings } from "lucide-react";
+import { MapPin, Calendar, ChevronDown, Mail, Phone, Settings, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface LayoutProps {
@@ -8,12 +8,22 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-sm shadow-sm">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
-            <Link to="/" className="flex items-center">
+            <Link to="/" className="flex items-center" onClick={closeMenu}>
               <img 
                 src="/lovable-uploads/d19527d9-ffd8-40c0-ba05-7aa09c52537c.png" 
                 alt="Recanto MD Olavio Logo" 
@@ -21,6 +31,8 @@ const Layout = ({ children }: LayoutProps) => {
               />
               <h1 className="text-2xl font-serif font-bold text-pousada-blue">Recanto MD Olavio</h1>
             </Link>
+            
+            {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
               <Link to="/" className="text-pousada-dark hover:text-pousada-blue transition-colors font-medium">
                 Início
@@ -28,24 +40,6 @@ const Layout = ({ children }: LayoutProps) => {
               <Link to="/acomodacoes" className="text-pousada-dark hover:text-pousada-blue transition-colors font-medium">
                 Acomodações
               </Link>
-              {/* <div className="relative group">
-               <button className="flex items-center text-pousada-dark hover:text-pousada-blue transition-colors font-medium">
-                  Experiências <ChevronDown className="ml-1 h-4 w-4" />
-                </button>
-                <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                  <div className="py-1">
-                    <Link to="/experiencias/gastronomia" className="block px-4 py-2 text-sm text-pousada-dark hover:bg-accent">
-                      Gastronomia
-                    </Link>
-                    <Link to="/experiencias/passeios" className="block px-4 py-2 text-sm text-pousada-dark hover:bg-accent">
-                      Passeios
-                    </Link>
-                    <Link to="/experiencias/atividades" className="block px-4 py-2 text-sm text-pousada-dark hover:bg-accent">
-                      Atividades
-                    </Link>
-                  </div>
-                </div>
-              </div>*/}
               <Link to="/galeria" className="text-pousada-dark hover:text-pousada-blue transition-colors font-medium">
                 Galeria
               </Link>
@@ -53,21 +47,90 @@ const Layout = ({ children }: LayoutProps) => {
                 Contato
               </Link>
             </nav>
+            
             <div className="flex items-center space-x-4">
-              <Link to="/reservas">
-                <Button variant="default" className="bg-pousada-blue hover:bg-pousada-dark text-white">
-                  <Calendar className="mr-2 h-4 w-4" /> Reservar
-                </Button>
-              </Link>
-              <button className="md:hidden text-pousada-dark">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
+              {/* Desktop Reservar Button */}
+              <div className="hidden md:block">
+                <Link to="/reservas">
+                  <Button variant="default" className="bg-pousada-blue hover:bg-pousada-dark text-white">
+                    <Calendar className="mr-2 h-4 w-4" /> Reservar
+                  </Button>
+                </Link>
+              </div>
+              
+              {/* Mobile menu button */}
+              <button 
+                className="md:hidden p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-pousada-blue transition-colors"
+                onClick={toggleMenu}
+                aria-label="Toggle menu"
+              >
+                {isMenuOpen ? (
+                  <X className="h-6 w-6 text-pousada-dark" />
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-pousada-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                )}
               </button>
+            </div>
+          </div>
+
+          {/* Mobile Navigation */}
+          <div className={`md:hidden transition-all duration-300 ease-in-out ${
+            isMenuOpen 
+              ? 'max-h-96 opacity-100 visible' 
+              : 'max-h-0 opacity-0 invisible overflow-hidden'
+          }`}>
+            <div className="py-4 border-t bg-white/95 backdrop-blur-sm">
+              <nav className="flex flex-col space-y-4">
+                <Link
+                  to="/"
+                  className="px-4 py-2 text-pousada-dark hover:text-pousada-blue hover:bg-gray-50 transition-colors font-medium rounded-md"
+                  onClick={closeMenu}
+                >
+                  Início
+                </Link>
+                <Link
+                  to="/acomodacoes"
+                  className="px-4 py-2 text-pousada-dark hover:text-pousada-blue hover:bg-gray-50 transition-colors font-medium rounded-md"
+                  onClick={closeMenu}
+                >
+                  Acomodações
+                </Link>
+                <Link
+                  to="/galeria"
+                  className="px-4 py-2 text-pousada-dark hover:text-pousada-blue hover:bg-gray-50 transition-colors font-medium rounded-md"
+                  onClick={closeMenu}
+                >
+                  Galeria
+                </Link>
+                <Link
+                  to="/contato"
+                  className="px-4 py-2 text-pousada-dark hover:text-pousada-blue hover:bg-gray-50 transition-colors font-medium rounded-md"
+                  onClick={closeMenu}
+                >
+                  Contato
+                </Link>
+                <div className="px-4 pt-2">
+                  <Link to="/reservas" onClick={closeMenu}>
+                    <Button variant="default" className="w-full bg-pousada-blue hover:bg-pousada-dark text-white">
+                      <Calendar className="mr-2 h-4 w-4" /> Reservar
+                    </Button>
+                  </Link>
+                </div>
+              </nav>
             </div>
           </div>
         </div>
       </header>
+
+      {/* Overlay para fechar menu quando clicar fora */}
+      {isMenuOpen && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-25 z-40 md:hidden"
+          onClick={closeMenu}
+        />
+      )}
 
       <main className="flex-grow">
         {children}
@@ -97,7 +160,6 @@ const Layout = ({ children }: LayoutProps) => {
               <ul className="space-y-2">
                 <li><Link to="/" className="text-gray-300 hover:text-white transition-colors">Início</Link></li>
                 <li><Link to="/acomodacoes" className="text-gray-300 hover:text-white transition-colors">Acomodações</Link></li>
-                <li><Link to="/experiencias" className="text-gray-300 hover:text-white transition-colors">Experiências</Link></li>
                 <li><Link to="/galeria" className="text-gray-300 hover:text-white transition-colors">Galeria</Link></li>
                 <li><Link to="/contato" className="text-gray-300 hover:text-white transition-colors">Contato</Link></li>
                 {/* Link para Admin */}

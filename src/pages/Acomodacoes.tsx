@@ -21,7 +21,7 @@ const handleFilter = (capacity: string) => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative h-[50vh] bg-cover bg-center" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1618221469555-7f3ad97540d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80")' }}>
+      <section className="relative h-[50vh] bg-cover bg-center" style={{ backgroundImage: 'url("https://i.postimg.cc/Bv5Mhc17/Imagem-do-Whats-App-de-2025-06-21-s-09-54-55-dcbf3ba8.jpg")' }}>
         <div className="absolute inset-0 hero-gradient"></div>
         <div className="absolute inset-0 flex items-center">
           <div className="container mx-auto px-4">
