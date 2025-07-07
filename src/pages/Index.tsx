@@ -26,7 +26,7 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative h-[80vh] bg-cover bg-center" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80")' }}>
+      <section className="relative h-[80vh] bg-cover bg-center" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1750508961186-d2cbd3376fbb?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")' }}>
         <div className="absolute inset-0 hero-gradient"></div>
         <div className="absolute inset-0 flex items-center">
           <div className="container mx-auto px-4">
@@ -36,7 +36,7 @@ const Index = () => {
                 Um refúgio encantador em meio à natureza, onde tranquilidade e conforto se encontram para proporcionar uma experiência inesquecível.
               </p>
               <Button size="lg" className="bg-pousada-brown hover:bg-pousada-dark text-white">
-                Conheça Nossa História
+                Faça sua Reserva
               </Button>
             </div>
           </div>
@@ -106,17 +106,41 @@ const Index = () => {
                       </SelectContent>
                     </Select>
                   </div>
-                  <div className="md:col-span-1">
-                    <label className="block text-sm font-medium mb-1">&nbsp;</label>
-                    <Button className="w-full bg-pousada-brown hover:bg-pousada-dark text-white">
-                      Verificar Disponibilidade
-                    </Button>
-                  </div>
+                  
+                  <Button 
+                  className="w-full bg-pousada-brown hover:bg-pousada-dark text-white"
+                  onClick={() => {
+                    // Validação das datas
+                    if (!checkInDate || !checkOutDate) {
+                      alert('Por favor, preencha as datas de check-in e check-out');
+                      return;
+                    }
+
+                    // Verifica se check-out é posterior ao check-in
+                    if (new Date(checkOutDate) <= new Date(checkInDate)) {
+                      alert('A data de check-out deve ser posterior ao check-in');
+                      return;
+                    }
+
+                    // Cria a mensagem para o WhatsApp
+                    const message = `Olá, Recanto MD Olavio! Gostaria de verificar disponibilidade:
+                    
+                    📅 Check-in: ${checkInDate}
+                    📅 Check-out: ${checkOutDate}
+                    👨‍👩‍👧‍👦 Adultos: ${adults}
+                    👧 Crianças: ${children}`;
+
+                    // Abre o WhatsApp
+                    window.open(`https://wa.me/5521971864896?text=${encodeURIComponent(message)}`, '_blank');
+                  }}
+                >
+                  Verificar Disponibilidade
+                </Button>
                 </form>
               </TabsContent>
               <TabsContent value="pacotes">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="border rounded p-4 bg-pousada-cream bg-opacity-30">
+                  <div className="border rounded p-4 bg-gray-50">
                     <h4 className="font-serif text-lg font-medium mb-2">Pacote Romântico</h4>
                     <p className="text-sm mb-2">2 noites com café da manhã, jantar romântico e massagem para casal.</p>
                     <div className="text-pousada-brown font-semibold mb-2">R$ 1.200</div>
@@ -124,7 +148,7 @@ const Index = () => {
                       Reservar Pacote
                     </Button>
                   </div>
-                  <div className="border rounded p-4 bg-pousada-cream bg-opacity-30">
+                  <div className="border rounded p-4 bg-gray-50">
                     <h4 className="font-serif text-lg font-medium mb-2">Pacote Família</h4>
                     <p className="text-sm mb-2">3 noites com café da manhã, passeio na fazenda e atividades para crianças.</p>
                     <div className="text-pousada-brown font-semibold mb-2">R$ 2.400</div>
@@ -132,7 +156,7 @@ const Index = () => {
                       Reservar Pacote
                     </Button>
                   </div>
-                  <div className="border rounded p-4 bg-pousada-cream bg-opacity-30">
+                  <div className="border rounded p-4 bg-gray-50">
                     <h4 className="font-serif text-lg font-medium mb-2">Pacote Relax</h4>
                     <p className="text-sm mb-2">2 noites com café da manhã, acesso ao spa e tratamentos relaxantes.</p>
                     <div className="text-pousada-brown font-semibold mb-2">R$ 1.500</div>
@@ -147,7 +171,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About Section */}
+      {/* About Section - Fundo Branco */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -165,23 +189,23 @@ const Index = () => {
                 Oferecemos diversas experiências para nossos hóspedes, desde passeios guiados pela propriedade até workshops de gastronomia local com ingredientes da nossa horta.
               </p>
               <Link to="/sobre">
-                <Button variant="outline" className="border-pousada-brown text-pousada-brown hover:bg-pousada-cream">
+                {/*<Button variant="outline" className="border-pousada-brown text-pousada-brown hover:bg-pousada-cream">
                   Conheça Nossa História
-                </Button>
+                </Button>*/}
               </Link>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <div className="overflow-hidden rounded-lg">
                   <img 
-                    src="https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                    src="https://i.postimg.cc/YpFVGQjW/Imagem-do-Whats-App-de-2025-06-21-s-09-54-52-1cc7e305.jpg" 
                     alt="Pousada Serena" 
                     className="w-full h-64 object-cover hover:scale-110 transition-transform duration-500"
                   />
                 </div>
                 <div className="overflow-hidden rounded-lg">
                   <img 
-                    src="https://images.unsplash.com/photo-1507038772120-7fff76f79d79?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                    src="https://i.postimg.cc/d336tbNg/Imagem-do-Whats-App-de-2025-06-21-s-09-54-54-d43df472.jpg" 
                     alt="Paisagem da pousada" 
                     className="w-full h-32 object-cover hover:scale-110 transition-transform duration-500"
                   />
@@ -190,14 +214,14 @@ const Index = () => {
               <div className="space-y-4">
                 <div className="overflow-hidden rounded-lg">
                   <img 
-                    src="https://images.unsplash.com/photo-1527142879-95b61a0916cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                    src="https://i.postimg.cc/Bv5Mhc17/Imagem-do-Whats-App-de-2025-06-21-s-09-54-55-dcbf3ba8.jpg" 
                     alt="Detalhes da pousada" 
                     className="w-full h-32 object-cover hover:scale-110 transition-transform duration-500"
                   />
                 </div>
                 <div className="overflow-hidden rounded-lg">
                   <img 
-                    src="https://images.unsplash.com/photo-1542352567-59ac92615aab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                    src="https://i.postimg.cc/0xNpQPzY/Imagem-do-Whats-App-de-2025-06-21-s-10-11-45-880692fb.jpg" 
                     alt="Café da manhã" 
                     className="w-full h-64 object-cover hover:scale-110 transition-transform duration-500"
                   />
@@ -208,8 +232,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Featured Accommodations */}
-      <section className="py-16 bg-pousada-cream bg-opacity-30">
+      {/* Featured Accommodations - Fundo Cinza Claro */}
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-serif font-bold text-pousada-brown mb-4">
@@ -244,7 +268,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Experiences Section */}
+      {/* Experiences Section - Fundo Branco */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
@@ -259,16 +283,16 @@ const Index = () => {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="h-48 rounded-md overflow-hidden mb-4">
                 <img 
-                  src="https://images.unsplash.com/photo-1481833761820-0509d3217039?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
-                  alt="Gastronomia" 
+                  src="https://i.ibb.co/VpzZGnN0/Imagem-do-Whats-App-de-2025-07-06-s-23-28-48-94fa9714.jpg" 
+                  alt="Trilha" 
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-xl font-serif font-semibold text-pousada-brown mb-2">Gastronomia</h3>
+              <h3 className="text-xl font-serif font-semibold text-pousada-brown mb-2">Trilha</h3>
               <p className="text-gray-700 mb-4">
-                Nossa cozinha utiliza ingredientes frescos da horta orgânica da propriedade para criar pratos deliciosos que revelam os sabores autênticos da região.
+                Explore nossa trilha ecológica em meio à natureza exuberante, descobrindo a fauna e flora local com vistas deslumbrantes da região e momentos únicos de conexão com o ambiente natural.
               </p>
-              <Link to="/experiencias/gastronomia">
+              <Link to="/experiencias/trilha">
                 <Button variant="link" className="p-0 text-pousada-brown hover:text-pousada-dark">
                   Saiba mais →
                 </Button>
@@ -277,16 +301,16 @@ const Index = () => {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="h-48 rounded-md overflow-hidden mb-4">
                 <img 
-                  src="https://images.unsplash.com/photo-1464518329099-e147d52dfdca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
-                  alt="Passeios" 
+                  src="https://i.ibb.co/fgDkzrQ/Imagem-do-Whats-App-de-2025-07-06-s-23-28-48-efd89a3a.jpg" 
+                  alt="Pesca Esportiva" 
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-xl font-serif font-semibold text-pousada-brown mb-2">Passeios</h3>
+              <h3 className="text-xl font-serif font-semibold text-pousada-brown mb-2">Pesca Esportiva</h3>
               <p className="text-gray-700 mb-4">
-                Explore trilhas exclusivas, cachoeiras secretas e paisagens deslumbrantes com nossos guias experientes que conhecem cada canto da região.
+                Desfrute de momentos relaxantes no nosso lago para pesca esportiva, um ambiente tranquilo e bem estruturado, perfeito para pescadores iniciantes e experientes aproveitarem a natureza.
               </p>
-              <Link to="/experiencias/passeios">
+              <Link to="/experiencias/pesca">
                 <Button variant="link" className="p-0 text-pousada-brown hover:text-pousada-dark">
                   Saiba mais →
                 </Button>
@@ -295,16 +319,16 @@ const Index = () => {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="h-48 rounded-md overflow-hidden mb-4">
                 <img 
-                  src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
-                  alt="Bem-estar" 
+                  src="https://i.ibb.co/xKZx6Wwf/Imagem-do-Whats-App-de-2025-07-06-s-23-28-48-447218e4.jpg" 
+                  alt="Área de Jogos" 
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-xl font-serif font-semibold text-pousada-brown mb-2">Bem-estar</h3>
+              <h3 className="text-xl font-serif font-semibold text-pousada-brown mb-2">Área de Jogos</h3>
               <p className="text-gray-700 mb-4">
-                Renove suas energias com massagens relaxantes, banhos de ofurô ao ar livre e sessões de yoga em meio à natureza exuberante.
+                Divirta-se em nossa área de jogos com mesa de sinuca, pebolim e outros entretenimentos. Um espaço perfeito para momentos de descontração em família ou com amigos.
               </p>
-              <Link to="/experiencias/bem-estar">
+              <Link to="/experiencias/jogos">
                 <Button variant="link" className="p-0 text-pousada-brown hover:text-pousada-dark">
                   Saiba mais →
                 </Button>
@@ -314,8 +338,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-16 bg-pousada-green bg-opacity-10">
+      {/* Testimonials - Fundo Cinza Claro */}
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-serif font-bold text-pousada-brown mb-4">
@@ -388,7 +412,7 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-              <p className="text-gray-700 italic">"As crianças adoraram o contato com a natureza e os animais da fazenda. O chalé família é espaçoso, confortável e perfeito para viagens em família. Voltaremos com certeza!"</p>
+              <p className="text-gray-700 italic">"As crianças adoraram o contato com a natureza e os animais da fazenda. O chalé Cancún é espaçoso, confortável e perfeito para viagens em família. Voltaremos com certeza!"</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="flex items-center mb-4">
@@ -426,7 +450,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Location */}
+      {/* Location - Fundo Branco */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -440,27 +464,35 @@ const Index = () => {
               <div className="flex items-start space-x-2 mb-4">
                 <MapPin className="h-5 w-5 mt-0.5 text-pousada-brown" />
                 <p className="text-gray-700">
-                  Estrada das Flores, Km 5<br />
-                  Campos do Jordão, SP<br />
-                  CEP 12345-678
+                  R. Trinta e Dois - Agro Brasil<br />
+                  Itaboraí - RJ<br />
+                  CEP 24842-590
                 </p>
               </div>
-              <Button className="bg-pousada-brown hover:bg-pousada-dark text-white">
+              <Button 
+                className="bg-pousada-brown hover:bg-pousada-dark text-white"
+                onClick={() => window.open(`https://wa.me/5521971864896?text=Olá,%20gostaria%20de%20saber%20como%20chegar%20na%20pousada`)}
+              >
                 Como Chegar
               </Button>
             </div>
             <div className="rounded-lg overflow-hidden shadow-lg">
-              <img 
-                src="https://images.unsplash.com/photo-1505974212839-c0fea86d42ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
-                alt="Localização da pousada" 
-                className="w-full h-96 object-cover"
-              />
-            </div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7363.700543369056!2d-42.7856696418335!3d-22.65937048506527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x99c59610e8df4b%3A0x58a808fa6922e546!2sRecanto%20MD!5e0!3m2!1spt-BR!2sbr!4v1747420868422!5m2!1spt-BR!2sbr"
+              width="100%"
+              height="400"
+              className="border-0"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Localização do Recanto MD"
+            />
+          </div>
           </div>
         </div>
       </section>
 
-      {/* Newsletter */}
+      {/* Newsletter - Mantém cor original para destaque */}
       <section className="py-16 bg-pousada-brown">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center text-white">

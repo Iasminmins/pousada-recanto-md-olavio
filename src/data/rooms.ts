@@ -1,4 +1,3 @@
-
 export interface Room {
   id: string;
   name: string;
@@ -39,11 +38,11 @@ export const rooms: Room[] = [
     },
     size: 45,
     beds: "1 Cama King",
-    image: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+    image: "https://images.unsplash.com/photo-1581618047805-566c1709ba1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
     galleryImages: [
-      "https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
-      "https://images.unsplash.com/photo-1552242718-c5360894aecd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-      "https://images.unsplash.com/photo-1630699144867-37acec97df5a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+      "https://images.unsplash.com/photo-1581618047805-566c1709ba1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1176&q=80",
+      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1158&q=80"
     ],
     amenities: ["Wi-Fi", "TV 4K", "Ar-condicionado", "Banheira", "Varanda", "Café da manhã", "Frigobar", "Secador de cabelo"],
     featured: true,
@@ -54,34 +53,82 @@ export const rooms: Room[] = [
   },
   {
     id: "chale-familia",
-    name: "Chalé Família",
+    name: "Chalé Cancún",
     description: "Chalé completo com 2 quartos, piscina privativa e churrasqueira.",
     fullDescription: [
-      "Nosso Chalé Família é a acomodação perfeita para quem viaja com família ou grupos de amigos.",
-      "Contém 2 quartos completos com cama de casal, 2 beliches, 1 cama de solteiro, 1 cama auxiliar de solteiro e 1 sofá cama de casal.",
-      "Possui banheiro completo, cozinha equipada, churrasqueira privativa e piscina exclusiva para seu aproveitamento total.",
-      "Ambiente espaçoso e aconchegante, ideal para famílias numerosas ou grupos de amigos com capacidade para 8 adultos e 2 crianças."
+      "O Recanto MD possui a opção de hospedagem. Temos como uma das opções o Chalé Cancún, essa acomodação possui 2 quartos e tem capacidade para até 8 adultos e 2 crianças.",
+      "Entre os diferenciais da acomodação estão uma cozinha com fogão e geladeira, televisão de 43 polegadas, churrasqueira móvel e piscina privativa.",
+      "Ambiente espaçoso e aconchegante, ideal para famílias numerosas ou grupos de amigos.",
+      "Diárias variam de acordo com o número de pessoas."
     ],
-    price: 1200,
+    price: 120,
     capacity: {
       adults: 8,
       children: 2
     },
     size: 120,
-    beds: "1 Cama de Casal, 2 Beliches, 1 Cama de Solteiro, 1 Cama Auxiliar, 1 Sofá Cama Casal",
-    image: "https://images.unsplash.com/photo-1587381420270-3e1a5b9e6904?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    beds: "2 Quartos com múltiplas camas",
+    image: "https://i.ibb.co/LzFQc9y5/IMG-20250615-WA0020.jpg",
     galleryImages: [
-      "https://images.unsplash.com/photo-1587381420270-3e1a5b9e6904?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-      "https://images.unsplash.com/photo-1501685532562-aa6846b353e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-      "https://images.unsplash.com/photo-1618221469555-7f3ad97540d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80"
+      "https://i.ibb.co/LzFQc9y5/IMG-20250615-WA0020.jpg",
+      "https://i.ibb.co/MkMbfmzT/IMG-20250615-WA0021.jpg",
+      "https://i.ibb.co/1J96tJx8/IMG-20250615-WA0022.jpg",
+      "https://i.ibb.co/B2Sh9NV2/IMG-20250615-WA0023.jpg",
+      "https://i.ibb.co/sdXfy9SW/IMG-20250615-WA0024.jpg",
+      "https://i.ibb.co/twzdPbNg/IMG-20250615-WA0025.jpg",
+      "https://i.ibb.co/C3VbC92f/IMG-20250615-WA0026.jpg",
+      "https://i.ibb.co/QvW3CzLX/IMG-20250615-WA0027.jpg",
+      "https://i.ibb.co/gMs7W0D2/IMG-20250615-WA0028.jpg",
+      "https://i.ibb.co/d4m0sjf0/IMG-20250615-WA0029.jpg",
+      "https://i.ibb.co/4ZBR5RzD/IMG-20250615-WA0030.jpg",
+      "https://i.ibb.co/q39fJYRZ/IMG-20250615-WA0031.jpg"
     ],
-    amenities: ["Wi-Fi", "TV", "Ar-condicionado", "Piscina Privativa", "Churrasqueira", "Cozinha Equipada", "Café da manhã", "Estacionamento"],
+    amenities: ["Wi-Fi", "TV 43\"", "Ar-condicionado", "Piscina Privativa", "Churrasqueira", "Cozinha Equipada", "Frigobar"],
     featured: true,
     priceOptions: [
-      { people: 4, price: 800 },
-      { people: 6, price: 1000 },
-      { people: 8, price: 1200 },
-      { people: 10, price: 1400 }
+      { people: 3, price: 260 },
+      { people: 4, price: 200 },
+      { people: 5, price: 200 },
+      { people: 6, price: 200 },
+      { people: 7, price: 180 },
+      { people: 8, price: 120 }
+    ]
+  },
+  {
+    id: "suite-simples",
+    name: "Suíte Simples",
+    description: "O Recanto MD possui a opção de hospedagem Suíte Simples, ela comporta até 4 adultos e 1 criança.",
+    fullDescription: [
+      "O Recanto MD possui a opção de hospedagem Suíte Simples, ela comporta até 4 adultos e 1 criança.",
+      "A suíte possui 1 cama de casal, 1 cama de solteiro, um sofá cama, um frigobar e um banheiro.",
+      "Decoração simples e aconchegante, perfeita para uma estadia confortável na nossa pousada.",
+      "Horário de check-in a partir das 10:30 e check-out até as 9:00."
+    ],
+    price: 350,
+    capacity: {
+      adults: 4,
+      children: 1
+    },
+    size: 30,
+    beds: "1 Cama de Casal, 1 Cama de Solteiro, 1 Sofá Cama",
+    image: "https://i.ibb.co/XxQtcGWg/IMG-20250615-WA0013.jpg",
+    galleryImages: [
+      "https://i.ibb.co/W4RmpLvK/IMG-20250615-WA0010.jpg",
+      "https://i.ibb.co/ZRt5FxK4/IMG-20250615-WA0011.jpg",
+      "https://i.ibb.co/XxQtcGWg/IMG-20250615-WA0013.jpg",
+      "https://i.ibb.co/r2NttsCc/IMG-20250615-WA0014.jpg",
+      "https://i.ibb.co/yTXf0v8/IMG-20250615-WA0016.jpg",
+      "https://i.ibb.co/PZLVZNqk/IMG-20250615-WA0017.jpg",
+      "https://i.ibb.co/y10mpV5/IMG-20250615-WA0018.jpg",
+      "https://i.ibb.co/pBxMMsmv/IMG-20250615-WA0019.jpg"
+    ],
+    amenities: ["Wi-Fi", "TV", "Ar-condicionado", "Frigobar"],
+    featured: true,
+    priceOptions: [
+      { people: 1, price: 350 },
+      { people: 2, price: 350 },
+      { people: 4, price: 450 },
+      { people: 5, price: 450 }
     ]
   },
   {
@@ -101,12 +148,12 @@ export const rooms: Room[] = [
     },
     size: 35,
     beds: "1 Cama de Casal, 1 Cama de Solteiro, 1 Sofá Cama Casal",
-    image: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+    image: "https://images.unsplash.com/photo-1581618047805-566c1709ba1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
     galleryImages: [
-      "https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
-      "https://images.unsplash.com/photo-1621293954908-907159247fc8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+      "https://images.unsplash.com/photo-1581618047805-566c1709ba1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1176&q=80"
     ],
-    amenities: ["Wi-Fi", "TV", "Ar-condicionado", "Café da manhã", "Frigobar", "Secador de cabelo"],
+    amenities: ["Wi-Fi", "TV", "Ar-condicionado", "Frigobar", "Secador de cabelo"],
     featured: false,
     priceOptions: [
       { people: 2, price: 450 },
@@ -132,10 +179,10 @@ export const rooms: Room[] = [
     },
     size: 40,
     beds: "1 Cama King Size",
-    image: "https://images.unsplash.com/photo-1604004555489-723a93d6ce74?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1167&q=80",
+    image: "https://images.unsplash.com/photo-1581618047805-566c1709ba1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
     galleryImages: [
-      "https://images.unsplash.com/photo-1604004555489-723a93d6ce74?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1167&q=80",
-      "https://images.unsplash.com/photo-1533154983518-ecd9a8f80583?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80"
+      "https://images.unsplash.com/photo-1581618047805-566c1709ba1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1176&q=80"
     ],
     amenities: ["Wi-Fi", "TV 65\"", "Ar-condicionado", "Piscina Privativa de Vidro", "Frigobar", "Secador de cabelo"],
     featured: true,
@@ -162,10 +209,10 @@ export const rooms: Room[] = [
     },
     size: 40,
     beds: "1 Cama King Size",
-    image: "https://images.unsplash.com/photo-1617974649697-75762ed6489a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    image: "https://images.unsplash.com/photo-1581618047805-566c1709ba1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
     galleryImages: [
-      "https://images.unsplash.com/photo-1617974649697-75762ed6489a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-      "https://images.unsplash.com/photo-1533154983518-ecd9a8f80583?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80"
+      "https://images.unsplash.com/photo-1581618047805-566c1709ba1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1176&q=80"
     ],
     amenities: ["Wi-Fi", "TV 65\"", "Ar-condicionado", "Piscina Privativa de Vidro", "Frigobar", "Secador de cabelo"],
     featured: true,
@@ -173,6 +220,36 @@ export const rooms: Room[] = [
       { people: 1, price: 750 },
       { people: 2, price: 850 },
       { people: 3, price: 900 }
+    ]
+  },
+  {
+    id: "day-use",
+    name: "Day Use",
+    description: "Curta um dia no Recanto MD! Você terá acesso às áreas comuns do sítio entre 9:00 e 17:00.",
+    fullDescription: [
+      "Curta um dia no Recanto MD! Você terá acesso às áreas comuns do sítio entre 9:00 e 17:00, com exceção das acomodações, academia, sauna e hidromassagem.",
+      "Entrada somente com reserva antecipada. Envie uma mensagem e confira as regras.",
+      "Aproveite nossa piscina, áreas de lazer, estacionamento e toda a estrutura de lazer do sítio.",
+      "Ideal para quem quer relaxar e aproveitar um dia diferente em contato com a natureza."
+    ],
+    price: 35,
+    capacity: {
+      adults: 10,
+      children: 5
+    },
+    size: 0,
+    beds: "Sem acomodação",
+    image: "https://i.ibb.co/zT4mQb1w/IMG-20250706-WA0023.jpg",
+    galleryImages: [
+      "https://i.ibb.co/zT4mQb1w/IMG-20250706-WA0023.jpg",
+      "https://i.ibb.co/6cQRgDC1/IMG-20250706-WA0024.jpg",
+      "https://i.ibb.co/B5r1LxHb/IMG-20250706-WA0025.jpg",
+      "https://i.ibb.co/NgRKvKG8/IMG-20250706-WA0026.jpg"
+    ],
+    amenities: ["Piscina", "Áreas de Lazer", "Estacionamento", "Áreas Comuns", "Wi-Fi"],
+    featured: true,
+    priceOptions: [
+      { people: 1, price: 35 }
     ]
   }
 ];

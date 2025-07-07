@@ -1,3 +1,4 @@
+// src/pages/Reservas.tsx - Apenas modificação da numeração
 
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
@@ -34,6 +35,7 @@ import { z } from "zod";
 import Layout from "@/components/Layout";
 import { getRoomById, rooms } from "@/data/rooms";
 import { toast } from "sonner";
+import { apiService } from "@/services/apiService";
 
 const formSchema = z.object({
   firstName: z.string().min(2, "Nome muito curto").max(50),
@@ -53,6 +55,7 @@ type FormValues = z.infer<typeof formSchema>;
 const Reservas = () => {
   const [searchParams] = useSearchParams();
   const [reservationSuccess, setReservationSuccess] = useState(false);
+  const [reservationId, setReservationId] = useState("");
   const roomParam = searchParams.get("room");
 
   const form = useForm<FormValues>({
@@ -80,19 +83,92 @@ const Reservas = () => {
     }
   }, [roomParam, form]);
 
-  function onSubmit(data: FormValues) {
-    console.log(data);
-    // Here we would normally send the data to the backend
-    // For demo purposes we'll just simulate a successful reservation
-    setTimeout(() => {
-      setReservationSuccess(true);
-      toast("Reserva realizada com sucesso!", {
-        description: "Você receberá um email de confirmação em breve.",
+  // Função atualizada para usar SUA API com nova numeração
+  async function onSubmit(data: FormValues) {
+    console.log('[DEBUG] Dados do formulário:', data);
+    
+    // Validações adicionais
+    const checkInDate = new Date(data.checkIn);
+    const checkOutDate = new Date(data.checkOut);
+    
+    if (checkOutDate <= checkInDate) {
+      toast("Erro na reserva", {
+        description: "A data de check-out deve ser posterior à data de check-in.",
       });
-    }, 1500);
+      return;
+    }
+    
+    // Calcular o número de noites
+    const nights = Math.ceil((checkOutDate.getTime() - checkInDate.getTime()) / (1000 * 60 * 60 * 24));
+    
+    // Calcular o preço total
+    const pricePerNight = selectedRoom ? selectedRoom.price : 0;
+    const totalPrice = pricePerNight * nights;
+    
+    if (totalPrice <= 0) {
+      toast("Erro na reserva", {
+        description: "Não foi possível calcular o preço. Por favor, tente novamente.",
+      });
+      return;
+    }
+    
+    // Criar o objeto de reserva para SUA API
+    const reservation = {
+      guestName: `${data.firstName} ${data.lastName}`.trim(),
+      contactEmail: data.email,
+      contactPhone: data.phone,
+      roomId: data.roomId,
+      roomName: selectedRoom?.name || "",
+      checkIn: data.checkIn,
+      checkOut: data.checkOut,
+      adults: parseInt(data.adults),
+      children: parseInt(data.children),
+      specialRequests: data.specialRequests,
+      totalPrice
+    };
+    
+    console.log('[DEBUG] Objeto de reserva:', reservation);
+    
+    try {
+      // Usar SUA API em vez do dataService local
+      const response = await apiService.createReservation(reservation);
+      console.log('[DEBUG] Reserva criada via API:', response);
+      
+      setReservationId(response.reservationId);
+      
+      // Mostrar mensagem de sucesso com nova numeração
+      toast("Reserva realizada com sucesso!", {
+        description: `Sua reserva #${response.reservationId} foi registrada. Em breve entraremos em contato para confirmação.`,
+      });
+      
+      // Atualizar o estado para mostrar a página de sucesso
+      setReservationSuccess(true);
+    } catch (error) {
+      console.error('[DEBUG] Erro ao criar reserva via API:', error);
+      
+      toast("Erro ao processar reserva", {
+        description: error instanceof Error ? error.message : "Ocorreu um erro ao processar sua reserva. Por favor, tente novamente.",
+      });
+    }
   }
 
   const today = new Date().toISOString().split('T')[0];
+  
+  const calculateTotalPrice = () => {
+    if (selectedRoom && form.watch('checkIn') && form.watch('checkOut')) {
+      try {
+        const checkInDate = new Date(form.watch('checkIn'));
+        const checkOutDate = new Date(form.watch('checkOut'));
+        const days = Math.ceil((checkOutDate.getTime() - checkInDate.getTime()) / (1000 * 60 * 60 * 24));
+        if (days > 0) {
+          return `R$ ${selectedRoom.price * days}`;
+        }
+      } catch (error) {
+        console.error("[DEBUG] Erro ao calcular preço:", error);
+      }
+    }
+    return "Selecione as datas";
+  };
   
   return (
     <Layout>
@@ -104,7 +180,7 @@ const Reservas = () => {
                 Reserve sua Estadia
               </h1>
               <p className="text-center text-gray-700 mb-8">
-                Complete o formulário abaixo para reservar sua acomodação na Pousada Serena.
+                Complete o formulário abaixo para reservar sua acomodação na Pousada Recanto MD Olavio.
               </p>
               
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -361,19 +437,7 @@ const Reservas = () => {
                               <div className="flex justify-between">
                                 <span>Total (estimado):</span>
                                 <span className="font-semibold text-pousada-brown">
-                                  {(() => {
-                                    try {
-                                      const checkIn = new Date(form.watch('checkIn'));
-                                      const checkOut = new Date(form.watch('checkOut'));
-                                      const days = Math.ceil((checkOut.getTime() - checkIn.getTime()) / (1000 * 60 * 60 * 24));
-                                      if (days > 0) {
-                                        return `R$ ${selectedRoom.price * days}`;
-                                      }
-                                      return "Selecione as datas";
-                                    } catch {
-                                      return "Selecione as datas";
-                                    }
-                                  })()}
+                                  {calculateTotalPrice()}
                                 </span>
                               </div>
                             )}
@@ -436,7 +500,7 @@ const Reservas = () => {
                 Reserva realizada com sucesso!
               </h1>
               <p className="text-xl text-gray-700 mb-8">
-                Agradecemos por escolher a Pousada Serena. Enviamos um e-mail de confirmação para você com todos os detalhes da sua reserva.
+                Agradecemos por escolher o Recanto MD Olavio. Enviamos um e-mail de confirmação para você com todos os detalhes da sua reserva.
               </p>
               <div className="bg-pousada-cream bg-opacity-30 rounded-lg p-6 mb-8 text-left">
                 <h3 className="text-xl font-serif font-semibold text-pousada-brown mb-4">
@@ -449,11 +513,11 @@ const Reservas = () => {
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-green-600 mr-2 mt-0.5" />
-                    <span>Guarde o número de confirmação para referência futura</span>
+                    <span>Guarde o número de confirmação <strong>#{reservationId}</strong> para referência futura</span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-green-600 mr-2 mt-0.5" />
-                    <span>Prepare-se para uma estadia incrível na Pousada Serena</span>
+                    <span>Prepare-se para uma estadia incrível no Recanto MD Olavio</span>
                   </li>
                 </ul>
               </div>

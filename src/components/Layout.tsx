@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { Link } from "react-router-dom";
-import { MapPin, Calendar, ChevronDown, Mail, Phone } from "lucide-react";
+import { MapPin, Calendar, ChevronDown, Mail, Phone, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface LayoutProps {
@@ -29,8 +28,8 @@ const Layout = ({ children }: LayoutProps) => {
               <Link to="/acomodacoes" className="text-pousada-dark hover:text-pousada-blue transition-colors font-medium">
                 Acomodações
               </Link>
-              <div className="relative group">
-                <button className="flex items-center text-pousada-dark hover:text-pousada-blue transition-colors font-medium">
+              {/* <div className="relative group">
+               <button className="flex items-center text-pousada-dark hover:text-pousada-blue transition-colors font-medium">
                   Experiências <ChevronDown className="ml-1 h-4 w-4" />
                 </button>
                 <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
@@ -46,7 +45,7 @@ const Layout = ({ children }: LayoutProps) => {
                     </Link>
                   </div>
                 </div>
-              </div>
+              </div>*/}
               <Link to="/galeria" className="text-pousada-dark hover:text-pousada-blue transition-colors font-medium">
                 Galeria
               </Link>
@@ -89,7 +88,7 @@ const Layout = ({ children }: LayoutProps) => {
               <p className="mb-4 text-gray-300">Uma experiência única em meio à natureza, com o conforto que você merece.</p>
               <div className="flex items-start space-x-2">
                 <MapPin className="h-5 w-5 mt-0.5 text-pousada-lightblue" />
-                <p className="text-gray-300">Estrada das Flores, Km 5<br />Campos do Jordão, SP<br />CEP 12345-678</p>
+                <p className="text-gray-300">R. Trinta e Dois - Agro Brasil<br />Itaboraí - RJ<br />CEP 24842-590</p>
               </div>
             </div>
 
@@ -101,6 +100,13 @@ const Layout = ({ children }: LayoutProps) => {
                 <li><Link to="/experiencias" className="text-gray-300 hover:text-white transition-colors">Experiências</Link></li>
                 <li><Link to="/galeria" className="text-gray-300 hover:text-white transition-colors">Galeria</Link></li>
                 <li><Link to="/contato" className="text-gray-300 hover:text-white transition-colors">Contato</Link></li>
+                {/* Link para Admin */}
+                <li><Link to="/admin" className="text-gray-300 hover:text-white transition-colors">
+                  <div className="flex items-center">
+                    <Settings className="h-4 w-4 mr-1" />
+                    <span>Administração</span>
+                  </div>
+                </Link></li>
               </ul>
             </div>
 
@@ -108,7 +114,7 @@ const Layout = ({ children }: LayoutProps) => {
               <h3 className="text-xl font-serif mb-4">Contato</h3>
               <div className="flex items-center mb-2 text-gray-300">
                 <Phone className="h-5 w-5 mr-2 text-pousada-lightblue" />
-                <p>(12) 3456-7890</p>
+                <p>(21) 97186-4896</p>
               </div>
               <div className="flex items-center mb-4 text-gray-300">
                 <Mail className="h-5 w-5 mr-2 text-pousada-lightblue" />
@@ -140,6 +146,17 @@ const Layout = ({ children }: LayoutProps) => {
           </div>
         </div>
       </footer>
+      
+      {/* Botão flutuante de admin (opcional - pode remover se preferir apenas o link no footer) */}
+      <div className="fixed bottom-4 right-4 z-40">
+        <Link 
+          to="/admin" 
+          className="bg-white/80 hover:bg-white p-2 rounded-full shadow-md flex items-center justify-center transition-all"
+          title="Área Administrativa"
+        >
+          <Settings className="h-6 w-6 text-pousada-blue" />
+        </Link>
+      </div>
     </div>
   );
 };
