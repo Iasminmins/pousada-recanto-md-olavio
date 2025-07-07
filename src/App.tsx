@@ -8,6 +8,7 @@ import Acomodacoes from "./pages/Acomodacoes";
 import RoomDetail from "./pages/RoomDetail";
 import Reservas from "./pages/Reservas";
 import Contato from "./pages/Contato"; // Importação da página de contato
+import Galeria from "./pages/galeria"; // Importação da página de galeria
 import NotFound from "./pages/NotFound";
 import AdminPage from "./pages/admin"; // Importação do componente Admin
 import LoginPage from "./pages/admin/login"; // Importação do componente Login
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/acomodacoes/:id" element={<RoomDetail />} />
             <Route path="/reservas" element={<Reservas />} />
             <Route path="/contato" element={<Contato />} /> {/* Nova rota para a página de contato */}
+            <Route path="/galeria" element={<Galeria />} /> {/* Nova rota para a página de galeria */}
             
             {/* Rotas adicionadas para admin e login */}
             <Route path="/admin" element={<AdminPage />} />

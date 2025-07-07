@@ -130,7 +130,7 @@ const initialData = {
     },
     {
       id: 'room-002',
-      name: 'Chalé Família',
+      name: 'Chalé Cancun',
       description: 'Chalé aconchegante ideal para famílias, com dois quartos, sala de estar e cozinha equipada.',
       price: 750.00,
       max_guests: 6,

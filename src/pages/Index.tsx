@@ -283,7 +283,7 @@ const Index = () => {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="h-48 rounded-md overflow-hidden mb-4">
                 <img 
-                  src="https://i.ibb.co/VpzZGnN0/Imagem-do-Whats-App-de-2025-07-06-s-23-28-48-94fa9714.jpg" 
+                  src="https://i.ibb.co/xKZx6Wwf/Imagem-do-Whats-App-de-2025-07-06-s-23-28-48-447218e4.jpg" 
                   alt="Trilha" 
                   className="w-full h-full object-cover"
                 />
@@ -292,16 +292,16 @@ const Index = () => {
               <p className="text-gray-700 mb-4">
                 Explore nossa trilha ecológica em meio à natureza exuberante, descobrindo a fauna e flora local com vistas deslumbrantes da região e momentos únicos de conexão com o ambiente natural.
               </p>
-              <Link to="/experiencias/trilha">
+              {/*<Link to="/experiencias/trilha">
                 <Button variant="link" className="p-0 text-pousada-brown hover:text-pousada-dark">
                   Saiba mais →
                 </Button>
-              </Link>
+              </Link>*/}
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="h-48 rounded-md overflow-hidden mb-4">
                 <img 
-                  src="https://i.ibb.co/fgDkzrQ/Imagem-do-Whats-App-de-2025-07-06-s-23-28-48-efd89a3a.jpg" 
+                  src="https://i.ibb.co/VpzZGnN0/Imagem-do-Whats-App-de-2025-07-06-s-23-28-48-94fa9714.jpg" 
                   alt="Pesca Esportiva" 
                   className="w-full h-full object-cover"
                 />
@@ -310,16 +310,16 @@ const Index = () => {
               <p className="text-gray-700 mb-4">
                 Desfrute de momentos relaxantes no nosso lago para pesca esportiva, um ambiente tranquilo e bem estruturado, perfeito para pescadores iniciantes e experientes aproveitarem a natureza.
               </p>
-              <Link to="/experiencias/pesca">
+              {/*<Link to="/experiencias/pesca">
                 <Button variant="link" className="p-0 text-pousada-brown hover:text-pousada-dark">
                   Saiba mais →
                 </Button>
-              </Link>
+              </Link>*/}
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="h-48 rounded-md overflow-hidden mb-4">
                 <img 
-                  src="https://i.ibb.co/xKZx6Wwf/Imagem-do-Whats-App-de-2025-07-06-s-23-28-48-447218e4.jpg" 
+                  src="https://i.ibb.co/fgDkzrQ/Imagem-do-Whats-App-de-2025-07-06-s-23-28-48-efd89a3a.jpg" 
                   alt="Área de Jogos" 
                   className="w-full h-full object-cover"
                 />
@@ -328,11 +328,11 @@ const Index = () => {
               <p className="text-gray-700 mb-4">
                 Divirta-se em nossa área de jogos com mesa de sinuca, pebolim e outros entretenimentos. Um espaço perfeito para momentos de descontração em família ou com amigos.
               </p>
-              <Link to="/experiencias/jogos">
+              {/*<Link to="/experiencias/jogos">
                 <Button variant="link" className="p-0 text-pousada-brown hover:text-pousada-dark">
                   Saiba mais →
                 </Button>
-              </Link>
+              </Link>*/}
             </div>
           </div>
         </div>
