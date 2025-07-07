@@ -234,7 +234,7 @@ const handleFilter = (capacity: string) => {
               <div className="grid grid-cols-1 md:grid-cols-2">
                 <div className="relative h-64 md:h-auto">
                   <img 
-                    src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                    src="https://i.ibb.co/6cQRgDC1/IMG-20250706-WA0024.jpg" 
                     alt="Piscina do Recanto MD" 
                     className="w-full h-full object-cover"
                   />
