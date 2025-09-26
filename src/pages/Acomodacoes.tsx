@@ -270,7 +270,7 @@ const handleFilter = (capacity: string) => {
                 <h3 className="text-xl font-serif font-semibold text-pousada-brown mb-3">Horários</h3>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex justify-between"><span>Check-in:</span> <span className="font-medium">10:00</span></li>
-                  <li className="flex justify-between"><span>Check-out:</span> <span className="font-medium">até 12:00</span></li>
+                  <li className="flex justify-between"><span>Check-out:</span> <span className="font-medium">até 9:00</span></li>
                   {/* <li className="flex justify-between"><span>Café da manhã:</span> <span className="font-medium">07:00 - 10:00</span></li> */}
                 </ul>
                 <h3 className="text-xl font-serif font-semibold text-pousada-brown mt-6 mb-3">Política de Cancelamento</h3>

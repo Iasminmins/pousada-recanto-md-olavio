@@ -31,7 +31,7 @@ export const rooms: Room[] = [
       "Ambiente espaçoso e aconchegante, ideal para famílias numerosas ou grupos de amigos.",
       "Diárias variam de acordo com o número de pessoas."
     ],
-    price: 120,
+    price: 1200,
     capacity: {
       adults: 8,
       children: 2
@@ -56,12 +56,12 @@ export const rooms: Room[] = [
     amenities: ["Wi-Fi", "TV 43\"", "Ar-condicionado", "Piscina Privativa", "Churrasqueira", "Cozinha Equipada", "Frigobar"],
     featured: true,
     priceOptions: [
-      { people: 3, price: 260 },
-      { people: 4, price: 200 },
-      { people: 5, price: 200 },
-      { people: 6, price: 200 },
-      { people: 7, price: 180 },
-      { people: 8, price: 120 }
+    { "people": 3, "price": 2600 },
+    { "people": 4, "price": 2600 },
+    { "people": 5, "price": 3000 },
+    { "people": 6, "price": 3400 },
+    { "people": 7, "price": 3800 },
+    { "people": 8, "price": 3800 }
     ]
   },
   {
@@ -74,7 +74,7 @@ export const rooms: Room[] = [
       "Decoração simples e aconchegante, perfeita para uma estadia confortável na nossa pousada.",
       "Horário de check-in a partir das 10:30 e check-out até as 9:00."
     ],
-    price: 350,
+    price: 450,
     capacity: {
       adults: 4,
       children: 1

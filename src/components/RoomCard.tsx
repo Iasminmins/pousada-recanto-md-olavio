@@ -51,7 +51,8 @@ const RoomCard = ({ id, name, description, price, capacity, image, amenities }: 
         <div className="flex justify-between items-center pt-4 border-t border-gray-100">
           <div className="text-pousada-brown">
             <span className="text-xl font-semibold">R$ {price}</span>
-            <span className="text-sm text-gray-500"> /noite</span>
+               <span className="text-sm text-gray-500">
+               {name.toLowerCase().includes('day use') ? ' /dia' : ' /noite'}</span>
           </div>
           <div className="flex space-x-2">
             <Link to={`/acomodacoes/${id}`}>

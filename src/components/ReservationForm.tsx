@@ -256,9 +256,9 @@ Reserva: #${response.reservationId}`;
               <TabsTrigger value="reserva" className="flex-1 font-medium">
                 <Calendar className="mr-2 h-5 w-5" /> Reservar Estadia
               </TabsTrigger>
-              <TabsTrigger value="pacotes" className="flex-1 font-medium">
+              {/* <TabsTrigger value="pacotes" className="flex-1 font-medium">
                 <Users className="mr-2 h-5 w-5" /> Pacotes Especiais
-              </TabsTrigger>
+              </TabsTrigger> */}
             </TabsList>
 
             <TabsContent value="reserva">
@@ -418,6 +418,7 @@ Reserva: #${response.reservationId}`;
               </div>
             </TabsContent>
 
+            {/* SEÇÃO DE PACOTES ESPECIAIS COMENTADA
             <TabsContent value="pacotes">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="border rounded p-4 bg-pousada-cream bg-opacity-30">
@@ -455,6 +456,7 @@ Reserva: #${response.reservationId}`;
                 </div>
               </div>
             </TabsContent>
+            */}
           </Tabs>
         </div>
       </div>
