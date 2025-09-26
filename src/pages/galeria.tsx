@@ -14,7 +14,7 @@ const Galeria = () => {
     "https://i.postimg.cc/0xNpQPzY/Imagem-do-Whats-App-de-2025-06-21-s-10-11-45-880692fb.jpg",
     "https://i.ibb.co/xKZx6Wwf/Imagem-do-Whats-App-de-2025-07-06-s-23-28-48-447218e4.jpg",
     "https://i.ibb.co/VpzZGnN0/Imagem-do-Whats-App-de-2025-07-06-s-23-28-48-94fa9714.jpg",
-    "https://i.ibb.co/fgDkzrQ/Imagem-do-Whats-App-de-2025-07-06-s-23-28-48-efd89a3a.jpg"
+    
   ];
 
   const openModal = (imageUrl) => {

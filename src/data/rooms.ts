@@ -22,36 +22,6 @@ export interface Room {
 
 export const rooms: Room[] = [
   {
-    id: "suite-luxo",
-    name: "Suíte Luxo",
-    description: "Uma suíte espaçosa com varanda privativa e vista para as montanhas.",
-    fullDescription: [
-      "Nossa Suíte Luxo oferece uma experiência premium com decoração sofisticada em estilo rústico e elegante.",
-      "Desfrute de uma varanda privativa com vista panorâmica para as montanhas, perfeita para relaxar ao entardecer.",
-      "O espaço amplo inclui uma área de estar confortável e uma cama king-size com lençóis de alta qualidade para garantir noites de sono perfeitas.",
-      "O banheiro luxuoso possui banheira de hidromassagem e amenidades premium para complementar sua estadia."
-    ],
-    price: 650,
-    capacity: {
-      adults: 2,
-      children: 0
-    },
-    size: 45,
-    beds: "1 Cama King",
-    image: "https://images.unsplash.com/photo-1581618047805-566c1709ba1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-    galleryImages: [
-      "https://images.unsplash.com/photo-1581618047805-566c1709ba1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1176&q=80",
-      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1158&q=80"
-    ],
-    amenities: ["Wi-Fi", "TV 4K", "Ar-condicionado", "Banheira", "Varanda", "Café da manhã", "Frigobar", "Secador de cabelo"],
-    featured: true,
-    priceOptions: [
-      { people: 1, price: 550 },
-      { people: 2, price: 650 }
-    ]
-  },
-  {
     id: "chale-familia",
     name: "Chalé Cancún",
     description: "Chalé completo com 2 quartos, piscina privativa e churrasqueira.",
@@ -132,37 +102,6 @@ export const rooms: Room[] = [
     ]
   },
   {
-    id: "suite-standard",
-    name: "Suíte Standard",
-    description: "Quarto amplo com frigobar e capacidade para toda a família.",
-    fullDescription: [
-      "Nossa Suíte Standard oferece um quarto amplo e confortável para sua estadia.",
-      "Acomodação com 1 cama de casal, 1 cama de solteiro e 1 sofá cama casal, ideal para famílias.",
-      "Possui frigobar e banheiro privativo, além de todo o conforto para até 5 pessoas.",
-      "Decoração simples e aconchegante, perfeita para uma estadia confortável na nossa pousada."
-    ],
-    price: 550,
-    capacity: {
-      adults: 4,
-      children: 1
-    },
-    size: 35,
-    beds: "1 Cama de Casal, 1 Cama de Solteiro, 1 Sofá Cama Casal",
-    image: "https://images.unsplash.com/photo-1581618047805-566c1709ba1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-    galleryImages: [
-      "https://images.unsplash.com/photo-1581618047805-566c1709ba1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1176&q=80"
-    ],
-    amenities: ["Wi-Fi", "TV", "Ar-condicionado", "Frigobar", "Secador de cabelo"],
-    featured: false,
-    priceOptions: [
-      { people: 2, price: 450 },
-      { people: 3, price: 500 },
-      { people: 4, price: 550 },
-      { people: 5, price: 600 }
-    ]
-  },
-  {
     id: "suite-caribe",
     name: "Suíte Caribe",
     description: "Suíte exclusiva com piscina privativa de vidro e TV de 65 polegadas.",
@@ -172,24 +111,28 @@ export const rooms: Room[] = [
       "Banheiro sofisticado, frigobar abastecido e piscina privativa de vidro para momentos únicos.",
       "Ideal para casais, com a possibilidade de acomodar uma criança menor de 3 anos."
     ],
-    price: 850,
+    price: 650,
     capacity: {
       adults: 2,
       children: 1
     },
     size: 40,
     beds: "1 Cama King Size",
-    image: "https://images.unsplash.com/photo-1581618047805-566c1709ba1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    image: "https://i.ibb.co/KprstXnx/Whats-App-Image-2025-09-22-at-14-02-56.jpg",
     galleryImages: [
-      "https://images.unsplash.com/photo-1581618047805-566c1709ba1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1176&q=80"
+        "https://i.ibb.co/1t2RnT9V/Whats-App-Image-2025-09-22-at-14-02-56-1.jpg",
+        "https://i.ibb.co/9Hgyhkbd/Whats-App-Image-2025-09-22-at-14-02-56-2.jpg", 
+        "https://i.ibb.co/cSdTZPvG/whats-App-Image-2025-09-22-at-14-02-57.jpg",
+        "https://i.ibb.co/hFgMLTZs/Whats-App-Image-2025-09-22-at-14-02-57-1.jpg",
+        "https://i.ibb.co/WNGKryKc/Whats-App-Image-2025-09-22-at-14-02-57-2.jpg",
+        "https://i.ibb.co/RT2hLmm3/Whats-App-Image-2025-09-22-at-14-02-57-3.jpg"
     ],
     amenities: ["Wi-Fi", "TV 65\"", "Ar-condicionado", "Piscina Privativa de Vidro", "Frigobar", "Secador de cabelo"],
     featured: true,
     priceOptions: [
-      { people: 1, price: 750 },
-      { people: 2, price: 850 },
-      { people: 3, price: 900 }
+      { people: 1, price: 570 },
+      { people: 2, price: 650 },
+      { people: 3, price: 700 }
     ]
   },
   {
@@ -198,28 +141,33 @@ export const rooms: Room[] = [
     description: "Suíte exclusiva com piscina privativa de vidro e TV de 65 polegadas.",
     fullDescription: [
       "Nossa Suíte Bahamas é perfeita para casais em busca de privacidade e conforto premium.",
-      "Acomodação com cama king size, televisão de 65 polegadas e ar condicionado.",
+      "Acomodação com cama king size, televisão de 55 polegadas e ar condicionado.",
       "Banheiro sofisticado, frigobar abastecido e piscina privativa de vidro para momentos únicos.",
       "Ideal para casais, com a possibilidade de acomodar uma criança menor de 3 anos."
     ],
-    price: 850,
+    price: 650,
     capacity: {
       adults: 2,
       children: 1
     },
     size: 40,
     beds: "1 Cama King Size",
-    image: "https://images.unsplash.com/photo-1581618047805-566c1709ba1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    image: "https://i.ibb.co/LXXL8RZh/Whats-App-Image-2025-09-22-at-13-48-28.jpg",
     galleryImages: [
-      "https://images.unsplash.com/photo-1581618047805-566c1709ba1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1176&q=80"
+      "https://i.ibb.co/vxSW73jD/Whats-App-Image-2025-09-22-at-13-48-28-1.jpg",
+      "https://i.ibb.co/yBVrvjPm/Whats-App-Image-2025-09-22-at-13-48-28-2.jpg",
+      "https://i.ibb.co/20716P52/Whats-App-Image-2025-09-22-at-13-48-29.jpg",
+      "https://i.ibb.co/0p5YP5MY/Whats-App-Image-2025-09-22-at-13-48-29-1.jpg",
+      "https://i.ibb.co/MHy7PgM/Whats-App-Image-2025-09-22-at-13-48-29-2.jpg",
+      "https://i.ibb.co/p6cZpyp7/Whats-App-Image-2025-09-22-at-13-48-30.jpg",
+      "https://i.ibb.co/nqK5g5Bx/Whats-App-Image-2025-09-22-at-13-48-30-1.jpg"
     ],
-    amenities: ["Wi-Fi", "TV 65\"", "Ar-condicionado", "Piscina Privativa de Vidro", "Frigobar", "Secador de cabelo"],
+    amenities: ["Wi-Fi", "TV 55\"", "Ar-condicionado", "Piscina Privativa de Vidro", "Frigobar", "Secador de cabelo"],
     featured: true,
     priceOptions: [
-      { people: 1, price: 750 },
-      { people: 2, price: 850 },
-      { people: 3, price: 900 }
+      { people: 1, price: 570 },
+      { people: 2, price: 650 },
+      { people: 3, price: 700 }
     ]
   },
   {

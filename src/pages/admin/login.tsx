@@ -106,11 +106,11 @@ export default function LoginPage() {
               </button>
             </form>
             
-            <div className="mt-4 text-center text-gray-600 text-sm">
+           {/* <div className="mt-4 text-center text-gray-600 text-sm">
               <p>Credenciais de teste:</p>
               <p>Email: admin@pousada.com</p>
               <p>Senha: admin123</p>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

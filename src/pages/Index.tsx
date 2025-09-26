@@ -214,7 +214,7 @@ const Index = () => {
               <div className="space-y-4">
                 <div className="overflow-hidden rounded-lg">
                   <img 
-                    src="https://i.postimg.cc/Bv5Mhc17/Imagem-do-Whats-App-de-2025-06-21-s-09-54-55-dcbf3ba8.jpg" 
+                    src="https://i.ibb.co/HRnBBRX/Whats-App-Image-2025-09-25-at-21-56-52.jpg" 
                     alt="Detalhes da pousada" 
                     className="w-full h-32 object-cover hover:scale-110 transition-transform duration-500"
                   />
