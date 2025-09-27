@@ -92,7 +92,7 @@ export const rooms: Room[] = [
       "https://i.ibb.co/y10mpV5/IMG-20250615-WA0018.jpg",
       "https://i.ibb.co/pBxMMsmv/IMG-20250615-WA0019.jpg"
     ],
-    amenities: ["Wi-Fi", "TV", "Ar-condicionado", "Frigobar"],
+    amenities: ["Wi-Fi", "Ar-condicionado", "Frigobar"],
     featured: true,
     priceOptions: [
       { people: 1, price: 350 },
@@ -109,12 +109,12 @@ export const rooms: Room[] = [
       "Nossa Suíte Caribe é perfeita para casais em busca de privacidade e conforto premium.",
       "Acomodação com cama king size, televisão de 65 polegadas e ar condicionado.",
       "Banheiro sofisticado, frigobar abastecido e piscina privativa de vidro para momentos únicos.",
-      "Ideal para casais, com a possibilidade de acomodar uma criança menor de 3 anos."
+      "Ideal para casais que buscam uma experiência exclusiva e romântica."
     ],
     price: 650,
     capacity: {
       adults: 2,
-      children: 1
+      children: 0
     },
     size: 40,
     beds: "1 Cama King Size",
@@ -131,24 +131,23 @@ export const rooms: Room[] = [
     featured: true,
     priceOptions: [
       { people: 1, price: 570 },
-      { people: 2, price: 650 },
-      { people: 3, price: 700 }
+      { people: 2, price: 650 }
     ]
   },
   {
     id: "suite-bahamas",
     name: "Suíte Bahamas",
-    description: "Suíte exclusiva com piscina privativa de vidro e TV de 65 polegadas.",
+    description: "Suíte exclusiva com piscina privativa de vidro e TV de 55 polegadas.",
     fullDescription: [
       "Nossa Suíte Bahamas é perfeita para casais em busca de privacidade e conforto premium.",
       "Acomodação com cama king size, televisão de 55 polegadas e ar condicionado.",
       "Banheiro sofisticado, frigobar abastecido e piscina privativa de vidro para momentos únicos.",
-      "Ideal para casais, com a possibilidade de acomodar uma criança menor de 3 anos."
+      "Ideal para casais que buscam uma experiência exclusiva e romântica."
     ],
     price: 650,
     capacity: {
       adults: 2,
-      children: 1
+      children: 0
     },
     size: 40,
     beds: "1 Cama King Size",
@@ -166,8 +165,7 @@ export const rooms: Room[] = [
     featured: true,
     priceOptions: [
       { people: 1, price: 570 },
-      { people: 2, price: 650 },
-      { people: 3, price: 700 }
+      { people: 2, price: 650 }
     ]
   },
   {

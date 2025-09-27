@@ -298,7 +298,7 @@ const RoomDetail = () => {
                   </div>
                   <div className="flex items-start">
                     <CheckCircle className="h-4 w-4 text-green-600 mr-2 mt-0.5" />
-                    <span>Pagamento na chegada</span>
+                    <span>Pagamento somente antecipado</span>
                   </div>
                 </div>
               </div>
