@@ -182,13 +182,16 @@ const Index = () => {
                 Bem-vindo ao Recanto MD Olavio
               </h2>
               <p className="text-gray-700 mb-4">
-                Localizado em meio às belas paisagens naturais, nosso refúgio combina o charme rústico com o conforto moderno. Cada detalhe foi cuidadosamente pensado para proporcionar uma experiência inesquecível aos nossos hóspedes.
+                Em meio a belas paisagens e muita área verde, o Recanto MD Olavio é o lugar perfeito para descansar, se divertir e se conectar com a natureza. Aqui, cada cantinho foi pensado para proporcionar momentos únicos e inesquecíveis para nossos hóspedes.
               </p>
               <p className="text-gray-700 mb-4">
-                Nossa pousada está situada em uma propriedade de 15 hectares, com trilhas naturais, riachos, hortas orgânicas e vistas deslumbrantes das montanhas. Um verdadeiro paraíso para quem busca tranquilidade e conexão com a natureza.
+                Nosso espaço conta com diversas opções de lazer: trilhas em meio à natureza, lago, piscina com escorregadores, redários, rede suspensa, pula-pula, parquinho infantil, além de salão de jogos com sinuca, tamancobol, basquete eletrônico e ping pong.
+              </p>
+              <p className="text-gray-700 mb-4">
+                O ambiente é amplo, acolhedor e rodeado de muito verde, ideal tanto para quem busca tranquilidade quanto para quem deseja se divertir com a família e os amigos.
               </p>
               <p className="text-gray-700 mb-6">
-                Oferecemos diversas experiências para nossos hóspedes, desde passeios guiados pela propriedade até workshops de gastronomia local com ingredientes da nossa horta.
+                No Recanto MD Olavio, você encontra o equilíbrio perfeito entre lazer, descanso e contato com a natureza.
               </p>
               <Link to="/sobre">
                 {/*<Button variant="outline" className="border-pousada-brown text-pousada-brown hover:bg-pousada-cream">
